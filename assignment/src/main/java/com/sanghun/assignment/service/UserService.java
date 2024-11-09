@@ -45,7 +45,7 @@ public class UserService {
 
         // 회원 존재 여부 확인
         if (checkUsername.isEmpty()) {
-            throw new IllegalArgumentException("등록되지 않은 사용자입니다.");
+            throw new UserNotFoundException("등록되지 않은 사용자입니다.");
         }
 
         User user = checkUsername.get();
@@ -58,4 +58,11 @@ public class UserService {
         String token = jwtUtil.createToken(user.getUserId(), user.getUsername(), user.getAuthorities());
         return loginDto.Response.of(token);
     }
+
+    public static class UserNotFoundException extends RuntimeException {
+        public UserNotFoundException(String username) {
+            super("User not found: " + username);
+        }
+    }
+
 }
