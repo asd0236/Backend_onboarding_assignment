@@ -39,3 +39,4 @@ out/
 /gradlew
 /gradlew.bat
 /.gitattributes
+.env

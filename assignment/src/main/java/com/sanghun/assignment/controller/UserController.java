@@ -15,12 +15,12 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    private signupDto.Response signup(@RequestBody signupDto.Request requestDto){
+    public signupDto.Response signup(@RequestBody signupDto.Request requestDto){
         return userService.signup(requestDto);
     }
 
     @PostMapping("/sign")
-    private loginDto.Response login(@RequestBody loginDto.Request requestDto){
+    public loginDto.Response login(@RequestBody loginDto.Request requestDto){
         return userService.login(requestDto);
     }
 
