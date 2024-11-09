@@ -19,13 +19,13 @@ public interface signupDto {
     @Builder
     class Response {
         private String username;
-        private String password;
+        private String nickname;
         private Authorities authorities;
 
         public static Response of(User user) {
             return Response.builder()
                     .username(user.getUsername())
-                    .password(user.getPassword())
+                    .nickname(user.getNickname())
                     .authorities(user.getAuthorities())
                     .build();
         }
